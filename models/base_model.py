@@ -11,12 +11,20 @@ class BaseModel():
         Class that defines attributes/methods for other classes.
     """
 
-    def __init__(self):
-        """The initiator function."""
+    def __init__(self, *args, **kwargs):
+        """The BaseModel class constructor function."""
 
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = self.created_at
+        if kwargs:
+            for key, value in kwargs.items():
+                if key not in ["__class__", "created_at", "updated_at"]:
+                    setattr(self, key, value)
+                if key in ["created_at", "updated_at"] and isinstance(value, str):
+                    setattr(self, key, datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
+
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = self.created_at
 
     def name(self, name):
         """Function to set and return client name."""

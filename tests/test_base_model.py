@@ -55,3 +55,12 @@ class TestBaseModel(unittest.TestCase):
         obj = BaseModel()
         dic = obj.to_dict()
         self.assertEqual(str(type(dic)), "<class 'dict'>")
+
+    def test_Kwargs(self):
+        """Testing kwargs holding dict representation"""
+
+        obj = BaseModel()
+        obj.name = "Dave"
+        json = obj.to_dict()
+        obj2 = BaseModel(**json)
+        self.assertEqual(obj2.name, obj.name)
