@@ -39,3 +39,19 @@ class TestBaseModel(unittest.TestCase):
 
         obj = BaseModel()
         self.assertTrue(obj.created_at)
+    def test_UpdatedTime(self):
+        """
+            Testing whether time is updated when save
+            attribute is called.
+        """
+
+        obj = BaseModel()
+        obj.save()
+        self.assertNotEqual(obj.created_at, obj.updated_at)
+
+    def test_dictionary(self):
+        """Testing whether dictionary is being created."""
+
+        obj = BaseModel()
+        dic = obj.to_dict()
+        self.assertEqual(str(type(dic)), "<class 'dict'>")
