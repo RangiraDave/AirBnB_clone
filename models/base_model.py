@@ -4,6 +4,7 @@
 """
 import uuid
 from datetime import datetime
+from models import storage
 
 
 class BaseModel():
@@ -15,16 +16,18 @@ class BaseModel():
         """The BaseModel class constructor function."""
 
         if kwargs:
-            for key, value in kwargs.items():
+            for key, v in kwargs.items():
                 if key not in ["__class__", "created_at", "updated_at"]:
-                    setattr(self, key, value)
-                if key in ["created_at", "updated_at"] and isinstance(value, str):
-                    setattr(self, key, datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
+                    setattr(self, key, v)
+                if key in ["created_at", "updated_at"] and isinstance(v, str):
+                    t = "%Y-%m-%dT%H:%M:%S.%f"
+                    setattr(self, key, datetime.strptime(v, t))
 
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = self.created_at
+            storage.new(self)
 
     def name(self, name):
         """Function to set and return client name."""
@@ -48,6 +51,7 @@ class BaseModel():
         """Function to update the updated_at with current time."""
 
         self.updated_at = datetime.now()
+        storage.save()
         return self.updated_at
 
     def to_dict(self):
