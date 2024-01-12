@@ -52,9 +52,10 @@ class FileStorage():
                     f.seek(0)
                     d = json.load(f)
                     from models.base_model import BaseModel
-                    c = {'BaseModel': BaseModel}
+                    from models.user import User
+                    c = {'BaseModel': BaseModel, 'User': User}
                     cls = '__class__'
-                    t = {k: c.get(d[k][cls], BaseModel)(**d[k]) for k in d}
+                    t = {k: c.get(d[k][cls], c.keys())(**d[k]) for k in d}
                     self.__objects = t
         except FileNotFoundError:
             pass
