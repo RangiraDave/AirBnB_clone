@@ -115,13 +115,14 @@ class HBNBCommand(cmd.Cmd):
             print("** class name doesn't exist **")
             return
 
+        key = "{}.{}".format(args[0], args[1])
         cls_instances = storage.all().get(args[0])
 
-        if cls_instances is None or str(args[1]) not in cls_instances:
+        if cls_instances is None or key not in cls_instances:
             print("** no instance found **")
             return
         else:
-            del cls_instances[str(args[1])]
+            del cls_instances[key]
             storage.save()
 
     def help_destroy(self):
@@ -134,20 +135,27 @@ class HBNBCommand(cmd.Cmd):
 
         if not line:
             print("** class name missing **")
+            return
 
         args = line.split(' ')
 
         if args[0] not in self.class_dict.keys():
             print("** class doesn't exist **")
+            return
 
         if len(args) < 2:
             print("** instance id missing **")
+            return
 
-        elif len(args) < 3:
+        if len(args) < 3:
             print("** attribute name missing **")
-        elif len(args) < 4:
+            return
+
+        if len(args) < 4:
             print("** value missing **")
-        elif len(args) == 5:
+            return
+
+        if len(args) == 5:
             cls_inst = storage.all().get(args[1])
 
             if cls_inst is None or args[1] not in cls_inst:
