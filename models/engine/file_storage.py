@@ -35,24 +35,26 @@ class FileStorage():
         Function to serialize __objects to __file_path JSON file
         """
 
-        t = self.__objects
-        serialized_obj = {key: obj.to_dict() for key, obj in t.items()}
+        t = self.__objects.items()
+        serialized_obj = {key: obj.to_dict() for key, obj in t}
         with open(self.__file_path, 'w', encoding='UTF-8') as f:
-            json.dump(serialized_obj, f, default = str)
+            json.dump(serialized_obj, f, default=str)
         return f
 
     def reload(self):
         """
-        Function to deserialize __file_path JSON to __objects.
-        """
+        Function to deserialize __file_path JSON to __objects."""
 
         try:
             with open(self.__file_path, 'r', encoding='UTF-8') as f:
-                if f.read(1):
-                    f.seek(0)
-                    d = json.load(f)
+                data = f.read()
+                if data:
+                    # f.seek(0)
+                    d = json.loads(data)
+
                     from models.base_model import BaseModel
                     from models.user import User
+
                     c = {'BaseModel': BaseModel, 'User': User}
                     cls = '__class__'
                     t = {k: c.get(d[k][cls], c.keys())(**d[k]) for k in d}

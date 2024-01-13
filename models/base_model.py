@@ -28,6 +28,8 @@ class BaseModel():
             self.created_at = datetime.now()
             self.updated_at = self.created_at
             storage.new(self)
+            self.name = ""
+            self.my_number = None
 
     def name(self, name):
         """Function to set and return client name."""
@@ -62,6 +64,10 @@ class BaseModel():
 
         u_str = self.updated_at.isoformat()
         c_str = self.created_at.isoformat()
+        __dict__ = {
+                key: value for key, value in self.__dict__.items()
+                if not callable(value) and not key.startswith("__")
+                }
         __dict__ = {
                 'my_number': self.my_number,
                 'name': self.name,
