@@ -32,10 +32,10 @@ class HBNBCommand(cmd.Cmd):
         """Function for EOF's help."""
         print("EOF command to exit the program\n")
 
-    def postloop(self):
+    def emptyline(self):
         """Function to manage the loop."""
 
-        print("** no instance found **")
+        pass
 
     def do_create(self, line):
         """
@@ -167,7 +167,7 @@ class HBNBCommand(cmd.Cmd):
 
                 try:
                     at_v = type(cls_inst[str(args[1])].__dict__[at_n])(at_v)
-                except:
+                except InvalidFormatError:
                     print("** Invalid format **")
 
                 if at_n not in cls_obj.__dict__:
