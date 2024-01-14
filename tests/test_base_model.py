@@ -39,6 +39,7 @@ class TestBaseModel(unittest.TestCase):
 
         obj = BaseModel()
         self.assertTrue(obj.created_at)
+
     def test_UpdatedTime(self):
         """
             Testing whether time is updated when save
