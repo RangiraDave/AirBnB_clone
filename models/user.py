@@ -13,6 +13,12 @@ class User(BaseModel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+    @id.getter
+    def id(self):
+        """Function to return id to use in Place class."""
+
+        return self.id
+
     def to_dict(self):
         """
         Function to return dictionary representation of the user
