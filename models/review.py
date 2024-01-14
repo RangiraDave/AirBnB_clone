@@ -9,9 +9,10 @@ from models.base_model import BaseModel
 class Review(BaseModel):
     """Class Review is defined here."""
 
-#    place_id = ""
-#    user_id = ""
-#    text = ""
+    place_id = ""
+    user_id = ""
+    text = ""
+
     def __init__(self, *args, **kwargs):
         """Class Review constructor."""
 

@@ -2,7 +2,8 @@
 """Class City that iniherits from BaseModel class."""
 
 from models.base_model import BaseModel
-from models.state import State
+# from models.state import State
+
 
 class City(BaseModel):
     """City class is defined here."""
