@@ -55,7 +55,15 @@ class FileStorage():
                     from models.base_model import BaseModel
                     from models.user import User
 
-                    c = {'BaseModel': BaseModel, 'User': User}
+                    c = {
+                            'BaseModel': BaseModel,
+                            'User': User,
+                            'Place': Place,
+                            'State': State,
+                            'City': City,
+                            'Amenity': Amenity,
+                            'Review': Review
+                            }
                     cls = '__class__'
                     t = {k: c.get(d[k][cls], c.keys())(**d[k]) for k in d}
                     self.__objects = t

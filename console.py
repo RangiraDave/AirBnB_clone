@@ -6,13 +6,26 @@ import json
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models import storage
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
     """The HBNBCommand console class definition.\n"""
 
     prompt = "(hbnb) "
-    class_dict = {'BaseModel': BaseModel(), 'FileStorage': FileStorage}
+    class_dict = {
+            'BaseModel': BaseModel(),
+            'FileStorage': FileStorage(),
+            'Place': Place(),
+            'State': State(),
+            'City': City(),
+            'Amenity': Amenity(),
+            'Review': Review()
+            }
 
     def do_quit(self, line):
         """Quit command to exit the program\n"""
