@@ -13,9 +13,7 @@ class Amenity(BaseModel):
         """Amenity class constructor."""
 
         super().__init__(*args, **kwargs)
-
-    @id.getter
-    def id(self):
-        """Function to return amenity id to use in Place class."""
-
-        return self.id
+#    @id.getter
+#    def id(self):
+#        """Function to return amenity id to use in Place class."""
+#        return self.id

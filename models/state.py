@@ -13,9 +13,7 @@ class State(BaseModel):
         """State class constructor."""
 
         super().__init__(*args, **kwargs)
-
-    @id.getter
-    def id(self):
-        """Function to return state id"""
-
-        return self.id
+#    @id.getter
+#    def id(self):
+#        """Function to return state id"""
+#        return self.id
