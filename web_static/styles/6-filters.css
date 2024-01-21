@@ -48,7 +48,25 @@ button:hover {
     justify-content: space-between;
 }
 
+.popover{
+    background-color:  #FAFAFA;
+    width: 99.4%;
+    height: fit-content;
+    border: 1px solid #DDDDDD;
+    padding: 0;
+    position: absolute;
+    top: 70px;
+    z-index: -99;
+    transition: all .3s ease-in-out;
+    visibility: hidden;
+}
 
+.locations:hover{
+
+    .popover{
+        visibility: visible;
+    }
+}
 
 h3 {
     font-weight: 600;
