@@ -110,9 +110,11 @@ h4 {
 }
 
 article {
-	width: 390px;
-	padding: 20px;
-	margin: 20px;
+	/* width: 70%;
+	height: 35%;*/
+	padding: 3%;
+	margin-top: 0%;
 	border: 1px solid #FF5A5F;
 	border-radius: 4px;
+	text-align: center;
 }

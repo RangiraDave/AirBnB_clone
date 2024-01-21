@@ -6,11 +6,9 @@ body {
         font: #484848;
         z-index: 1;
         font-size: 14px;
-
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-
         font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
@@ -21,4 +19,5 @@ body {
         margin-bottom: 30px;
         margin-left: 10%;
         margin-right: 10%;
+	flex-direction: column;
 }
