@@ -3,7 +3,7 @@
 	width: 100%;
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
-
+	color: white;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -82,17 +82,37 @@ button:hover {
 	}
 }
 
+h1 {
+	font-size: 30px;
+	align-items: top;
+	color: black;
+}
+
+h2 {
+	font-size: 30px;
+	align-items: center;
+	color: black;
+}
+
 h3 {
 	font-weight: 600;
-	color: #FFFFFF;
+	color: black;
 	margin-left: 25px;
 	line-height: 2px;
 }
 
 h4 {
-	color: white;
+	color: black;
 	font-weight: 600;
 	font-size: 14px;
 	margin-left: 25px;
 	line-height: 1;
+}
+
+article {
+	width: 390px;
+	padding: 20px;
+	margin: 20px;
+	border: 1px solid #FF5A5F;
+	border-radius: 4px;
 }
