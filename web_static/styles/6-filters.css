@@ -1,19 +1,18 @@
 .filters {
-	/* color: rgb(41, 39, 39); */
 	height: 70px;
 	width: 100%;
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 button {
 	font-size: 18px;
 	background-color: #FF5A5F;
-    color: #FFFFFF;
+	color: #FFFFFF;
 	height: 48px;
 	width: 20%;
 	margin-top:  11px;
@@ -29,56 +28,71 @@ button:hover {
 }
 
 .locations {
-    height: 100%;
-    width: 25%;
-    border-right: 1px solid #DDDDDD;
-    float: left;
-    padding-left: 0;
-    position: relative;
-    background-color: #fff;
+	height: 100%;
+	width: 25%;
+	border-right: 1px solid #DDDDDD;
+	float: left;
+	position: relative;
+	background-color: #FFFFFF;
 }
 
 .amenities {
-    height: 100%;
-    text-align: left;
-    float: left;
-    display: flex;
-    width: 70%;
-    line-height: 1px;
-    justify-content: space-between;
+	height: 100%;
+	text-align: left;
+	float: left;
+	display: flex;
+	width: 75%;
+	position: relative;
+	line-height: 1;
+	justify-content: space-between;
+}
+
+.reduce{
+	width: 35%;
+	margin-left: -auto;
 }
 
 .popover{
-    background-color:  #FAFAFA;
-    width: 99.4%;
-    height: fit-content;
-    border: 1px solid #DDDDDD;
-    padding: 0;
-    position: absolute;
-    top: 70px;
-    z-index: -99;
-    transition: all .3s ease-in-out;
-    visibility: hidden;
+	background-color:  #FAFAFA;
+	width: 99.4%;
+	height: fit-content;
+	border: 1px solid #DDDDDD;
+	border-radius: 4px;
+	padding: 0;
+	position: absolute;
+	top: 70px;
+	z-index: -99;
+	transition: all .3s ease-in-out;
+	visibility: hidden;
 }
 
 .locations:hover{
 
-    .popover{
-        visibility: visible;
-    }
+	.popover{
+		visibility: visible;
+	}
+}
+
+.amenities .reduce:hover{
+	.popover{
+		visibility: visible;
+		width: 35%;
+		border-left: 1px solid #DDDDDD;
+		border-right: 0px;
+	}
 }
 
 h3 {
-    font-weight: 600;
-    text-emphasis-color: #FFFFFF;
-    margin-left: 25px;
-    line-height: 2px;
+	font-weight: 600;
+	color: #FFFFFF;
+	margin-left: 25px;
+	line-height: 2px;
 }
 
 h4 {
-    text-emphasis-color: white;
-    font-weight: 600;
-    font-size: 14px;
-    margin-left: 25px;
-    line-height: 2px;
+	color: white;
+	font-weight: 600;
+	font-size: 14px;
+	margin-left: 25px;
+	line-height: 1;
 }
